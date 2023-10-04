@@ -9,10 +9,10 @@ def detective_view(request):
         form = CepForm(request.POST)
         if form.is_valid():
             uf = form.cleaned_data['uf']
-            estado = form.cleaned_data['estado']
+            cidade = form.cleaned_data['cidade']
             logradouro = form.cleaned_data['logradouro']
 
-            response = get_cep(uf, estado, logradouro)
+            response = get_cep(uf, cidade, logradouro)
             return render(request, 'response_view.html', {'response': response})
     else:
         form = CepForm()
